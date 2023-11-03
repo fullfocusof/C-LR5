@@ -1,0 +1,12 @@
+E:\Projects\C#\LR5\LR5.2\bin\Debug\LR5.2.exe.config
+E:\Projects\C#\LR5\LR5.2\bin\Debug\LR5.2.exe
+E:\Projects\C#\LR5\LR5.2\bin\Debug\LR5.2.pdb
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5.2.csproj.AssemblyReference.cache
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5._2.Properties.Resources.resources
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5.2.csproj.GenerateResource.cache
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5.2.csproj.CoreCompileInputs.cache
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5.2.exe
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5.2.pdb
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5._2.ComboForm.resources
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5._2.ExtraForm.resources
+E:\Projects\C#\LR5\LR5.2\obj\Debug\LR5._2.FallSnowflakeForm.resources
