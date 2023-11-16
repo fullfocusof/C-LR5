@@ -9,6 +9,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.AxHost;
 
 namespace LR5._2
 {
@@ -237,27 +238,55 @@ namespace LR5._2
 
 
 
-        private float f(float x)
-        {
-            if (x == 0) return 1;
-
-            return (float)Math.Sin(x);
-        }
-
         private void drawSinX()
         {
             g.Clear(BackColor);
 
-            float xMin = 100, xMax = 250;
-            List<PointF> points = new List<PointF>();
-            for (float x = xMin; x <= xMax; x += (float)0.01)
+            MyPen = new Pen(Color.Blue, 3);
+            MyPen.EndCap = System.Drawing.Drawing2D.LineCap.ArrowAnchor;
+            g.DrawLine(MyPen, 0, ClientSize.Height / 2, ClientSize.Width, ClientSize.Height / 2);
+            g.DrawLine(MyPen, ClientSize.Width / 2, ClientSize.Height, ClientSize.Width / 2, 0);
+
+            Font MyFont = new Font("Arial", 12);
+            StringFormat format = new StringFormat();
+            format.Alignment = StringAlignment.Center;
+            format.LineAlignment = StringAlignment.Center;
+
+            g.DrawString("X", MyFont, Brushes.Black, ClientSize.Width - 20, ClientSize.Height / 2 - 30);
+            g.DrawString("Y", MyFont, Brushes.Black, ClientSize.Width / 2 + 10, 10);
+
+
+            float step = 5f;
+            float scale = (ClientSize.Height / 2 - 10) / 30f;
+
+            for (float x = -30; x <= 30; x += step)
             {
-                points.Add(new PointF(x, f(x)));
+                int pixelX = ClientSize.Width / 2 + (int)(x * scale);
+                g.DrawLine(MyPen, pixelX, ClientSize.Height / 2 - 5, pixelX, ClientSize.Height / 2 + 5);
+                g.DrawString(x.ToString(), MyFont, Brushes.Black, pixelX - 10, ClientSize.Height / 2 + 10);
+            }
+            for (float y = -30; y <= 30; y += step)
+            {
+                int pixelY = ClientSize.Height / 2 - (int)(y * scale);
+                g.DrawLine(MyPen, ClientSize.Width / 2 - 5, pixelY, ClientSize.Width / 2 + 5, pixelY);
+                if(y != 0)
+                {
+                    g.DrawString(y.ToString(), MyFont, Brushes.Black, ClientSize.Width / 2 - 40, pixelY - 10);
+                }      
             }
 
-            MyPen = new Pen(Color.Black, 5);
-            g.DrawCurve(MyPen, points.ToArray());
+            MyPen.Color = Color.Red;
+
+            for (float x = -30; x <= 30; x += 0.1f)
+            {
+                float y = (float)(Math.Sin(x) * scale);
+                int pixelX = ClientSize.Width / 2 + (int)(x * scale);
+                int pixelY = ClientSize.Height / 2 - (int)y;
+                g.DrawRectangle(MyPen, pixelX, pixelY, 1, 1);
+            }
         }
+
+
 
 
 
@@ -419,7 +448,7 @@ namespace LR5._2
                 case 4:
                     {
                         Text = "График sin(x)";
-                        ClientSize = new Size(800,400);
+
                         drawSinX();
                     }
                     break;

@@ -49,7 +49,7 @@ namespace LR5._2
         }
 
         private void FallSnowflakeForm_MouseDown(object sender, MouseEventArgs e)
-        {
+        {          
             if (MouseButtons == MouseButtons.Left && !visible)
             {
                 visible = true;
